@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Moalboal - Culture</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="index.html" class="logo">EXPLORE MOALBOAL</a>
+        <nav class="navbar">
+            <a href="index.html" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="travel.html">Travel</a>
+            <a href="#food">Food</a>
+            <a href="#culture" onclick="showCultureSection(event)">Culture</a>
+        </nav>
+    </header>
+
+    <!-- Culture Section -->
+    <section id="culture-section" class="culture-section hidden">
+        <h1>MOALBOAL <span>CULTURE</span></h1>
+        <div class="culture-container">
+            <div class="culture-card">
+                <img src="feat-sinulog.avif" alt="Sinulog Festival">
+                <h3>Sinulog Festival</h3>
+                <p>Celebrate vibrant traditions and religious festivities.</p>
+                <button class="more-button" onclick="navigateToPage('pages/sinulog.html')">More</button>
+            </div>
+
+            <div class="culture-card">
+                <img src="feat-local.jpg" alt="Local Handicrafts">
+                <h3>Local Handicrafts</h3>
+                <p>Explore unique souvenirs crafted by skilled artisans.</p>
+                <button class="more-button" onclick="navigateToPage('pages/localhandicrafts.html')">More</button>
+            </div>
+
+            <div class="culture-card">
+                <img src="feat-dance.jpg" alt="Traditional Dance">
+                <h3>Traditional Dance</h3>
+                <p>Experience the rhythmic movements of local folk dances.</p>
+                <button class="more-button" onclick="navigateToPage('pages/traditionaldance.html')">More</button>
+            </div>
+            <div class="culture-card">
+                <img src="feat-food.jpg" alt="Cebuano Cuisine">
+                <h3>Cebuano Cuisine</h3>
+                <p>Savor the authentic flavors of Cebuano heritage.</p>
+                <button class="more-button" onclick="navigateToPage('pages/cebuanocusine.html')">More</button>
+
+            </div>
+            <div class="culture-card">
+                <img src="feat-historical.jpg" alt="Historical Sites">
+                <h3>Historical Sites</h3>
+                <p>Visit iconic landmarks with historical significance.</p>
+                <button class="more-button" onclick="navigateToPage('pages/historicalsites.html')">More</button>
+            </div>
+            <div class="culture-card">
+                <img src="feat-community.jpg" alt="Community Lifestyle">
+                <h3>Community Lifestyle</h3>
+                <p>Admire the elegance of local traditional lifestyle.</p>
+                <button class="more-button" onclick="navigateToPage('pages/Communitylifestyle.html')">More</button>
+            </div>
+            <div class="culture-card">
+                <img src="feat-religious.jpg" alt="Religious">
+                <h3>Religious</h3>
+                <p>Discover the rich of soul and love of Moalboal.</p>
+                <button class="more-button" onclick="navigateToPage('pages/Religious.html')">More</button>
+            </div>
+
+            
+        </div>
+
+    <!--JavaScript -->
+    <script>
+        function showCultureSection(event) {
+            event.preventDefault(); 
+
+            const cultureSection = document.getElementById('culture-section');
+            const sections = document.querySelectorAll('section');
+
+            
+            sections.forEach((section) => {
+                section.classList.add('hidden');
+            });
+
+            // Show only the culture section
+            cultureSection.classList.remove('hidden');
+            window.scrollTo(0, cultureSection.offsetTop);
+        }
+
+        function navigateToPage(page) {
+            localStorage.setItem('returnToCulture', true);
+            window.location.href = page; // Redirect to another page
+        }
+
+        function showFestivalDetails() {
+            const detailsSection = document.getElementById('festival-details');
+            detailsSection.classList.remove('hidden'); 
+            window.scrollTo(0, detailsSection.offsetTop); 
+        }
+
+        window.onload = function () {
+            const cultureSection = document.getElementById('culture-section');
+            const returnToCulture = localStorage.getItem('returnToCulture');
+
+        if (returnToCulture) {
+            // If the user is returning to the culture section
+            const sections = document.querySelectorAll('section');
+            sections.forEach((section) => {
+                section.classList.add('hidden');
+            });
+    
+            // Show the culture section
+            cultureSection.classList.remove('hidden');
+    
+            // Scroll to the culture section
+            window.scrollTo(0, cultureSection.offsetTop);
+        }   
+        };    
+
+
+    </script>
+
+</body>
+
+</html>
+
